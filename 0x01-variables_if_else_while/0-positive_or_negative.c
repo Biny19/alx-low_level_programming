@@ -9,7 +9,9 @@
  * Return: Always 0 (Success)
  */
 /**
- * main -prints whether the number stored in the variable n is positive or negative
+ * main -prints "is positive" if variable n greater than zero
+ * main -prints "is zero" if variable n is zero
+ * main -prints"is negative" if variable n less than zero
  */
 int main(void)
 {
