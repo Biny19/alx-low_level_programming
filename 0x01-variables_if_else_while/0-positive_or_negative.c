@@ -9,10 +9,9 @@
  * Return: Always 0 (Success)
  */
 /**
- * main -prints "is positive" if variable n greater than zero
- * main -prints "is zero" if variable n is zero
- * main -prints"is negative" if variable n less than zero
- */
+* main - print a random num
+* Return: 0
+*/
 int main(void)
 {
 int n;
