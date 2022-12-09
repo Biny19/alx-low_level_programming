@@ -8,6 +8,9 @@
  *
  * Return: Always 0 (Success)
  */
+/**
+ * main -prints whether the number stored in the variable n is positive or negative
+ */
 int main(void)
 {
 int n;
