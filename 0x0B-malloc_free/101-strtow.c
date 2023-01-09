@@ -53,7 +53,7 @@ return (NULL);
 words = count_word(str);
 if (words == 0)
 return (NULL);
-strings = malloc(sizeof(char *) * words);
+strings = malloc(sizeof(char *) * (words + 1));
 if (strings == NULL)
 return (NULL);
 for (j = 0; j <= words; j++)
@@ -61,7 +61,7 @@ for (j = 0; j <= words; j++)
 while (str[i] == ' ')
 i++;
 letters = word_len(str + i);
-strings[j] = malloc(sizeof(char) * letters);
+strings[j] = malloc(sizeof(char) * (letters + 1));
 if (strings[j] == NULL)
 {
 for (; j >= 0; j--)
