@@ -1,5 +1,22 @@
 #include <stdlib.h>
 #include "main.h"
+int word_len(char *s);
+int count_words(char *s);
+/**
+ * word_len - Eentry point
+ * @s: The string to be searched
+ * Return: 0
+ */
+int word_len(char *s)
+{
+int i = 0, l = 0;
+while (*(s + i) && *(s + i) != ' ')
+{
+l++;
+i++;
+}
+return (l);
+}
 /**
 * count_word - a function to count the number of words in a string
 * @s: string to evaluate
