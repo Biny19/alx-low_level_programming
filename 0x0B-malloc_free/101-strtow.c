@@ -2,6 +2,7 @@
 #include "main.h"
 int word_len(char *s);
 int count_words(char *s);
+char **strtow(char *str);
 /**
  * word_len - Eentry point
  * @s: The string to be searched
