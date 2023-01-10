@@ -53,7 +53,7 @@ return (NULL);
 words = count_word(str);
 if (words == 0)
 return (NULL);
-strings = malloc(sizeof(char *) * (words + 1));
+strings = malloc(sizeof(char) * (words + 1));
 if (strings == NULL)
 return (NULL);
 for (j = 0; j <= words; j++)
