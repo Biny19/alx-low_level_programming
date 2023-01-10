@@ -1,78 +1,65 @@
 #include <stdlib.h>
-#include "main.h"
-int word_len(char *s);
-int count_words(char *s);
-char **strtow(char *str);
+#include <stdio.h>
 /**
- * word_len - Eentry point
- * @s: The string to be searched
- * Return: 0
- */
-int word_len(char *s)
-{
-int i = 0, l = 0;
-while (*(s + i) && *(s + i) != ' ')
-{
-l++;
-i++;
-}
-return (l);
-}
-/**
-* count_word - a function to count the number of words in a string
-* @s: string to evaluate
+* word_len - Entry point
+* @s: pointer to the string
 * Return: 0
 */
-int count_word(char *s)
+int word_len(char *s)
 {
-int i = 0, w = 0, l = 0;
-for (i = 0; *(s + i); i++)
-l++;
-for (i = 0; i < l; i++)
+int flag, a, w;
+flag = 0;
+w = 0;
+for (a = 0; s[a] != '\0'; a++)
 {
-if (*(s + i) != ' ')
+if (s[a] == ' ')
+flag = 0;
+else if (flag == 0)
 {
+flag = 1;
 w++;
-i += word_len(s + i);
 }
 }
 return (w);
 }
 /**
-* **strtow - splits a string into words
-* @str: string to split
-* Return: pointer to an array of strings (Success)
-* or NULL (Error)
+* **strtow - Entry point
+* @str: pointer to split string
+* Return: pointer to an array of strings (Success) or NULL (Error)
 */
 char **strtow(char *str)
 {
-char **strings;
-int i, words, j, letters, c;
-if (str == NULL || str[0] == '\0')
-return (NULL);
-words = count_word(str);
+char **mal, *tmp;
+int i, k = 0, len = 0, words, a = 0, start, end;
+while (*(str + len))
+len++;
+words = word_len(str);
 if (words == 0)
 return (NULL);
-strings = malloc(sizeof(char) * (words + 1));
-if (strings == NULL)
+mal = (char **) malloc(sizeof(char *) * (words + 1));
+if (mal == NULL)
 return (NULL);
-for (j = 0; j <= words; j++)
+for (i = 0; i <= len; i++)
 {
-while (str[i] == ' ')
-i++;
-letters = word_len(str + i);
-strings[j] = malloc(sizeof(char) * (letters + 1));
-if (strings[j] == NULL)
+if (str[i] == ' ' || str[i] == '\0')
 {
-for (; j >= 0; j--)
-free(strings[j]);
-free(strings);
+if (a)
+{
+end = i;
+tmp = (char *) malloc(sizeof(char) * (a + 1));
+if (tmp == NULL)
 return (NULL);
+while (start < end)
+*tmp++ = str[start++];
+*tmp = '\0';
+mal[k] = tmp - a;
+k++;
+a = 0;
 }
-for (c = 0; c < letters; c++)
-strings[j][c] = str[i++];
-strings[j][c] = '\0';
 }
-strings[j] = NULL;
-return (strings);
+else if (a++ == 0)
+start = i;
+}
+mal[k] = NULL;
+return (mal);
 }
