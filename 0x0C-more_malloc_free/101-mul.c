@@ -71,7 +71,7 @@ carry = 0;
 for (len2 = _strlen(p) - 1; len2 >= 0; len2--)
 {
 digit2 = p[len2] - '0';
-carry = carry + result[len1 + len2 + 1] + (digit1 * digit2);
+carry = carry + result[len1 + len2 + 1] + (digit1 *digit2);
 result[len1 + len2 + 1] = carry % 10;
 carry /= 10;
 }
