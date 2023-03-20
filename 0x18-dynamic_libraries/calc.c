@@ -10,7 +10,6 @@ result = add(num1, num2);
 result = sub(num1, num2);
 result = mult(num1, num2);
 result = div(num1, num2);
-result = mod(num1, num2);
 return (0);
 }
 /**
@@ -52,14 +51,4 @@ return (num1 * num2);
 int div(int num1, int num2)
 {
 return (num1 / num2);
-}
-/**
- * mod - Entry point
- * @num1: the first number
- * @num2: the second number
- * Return: 0;
- */
-int mod(int num1, int num2)
-{
-return (num1 % num2);
 }
